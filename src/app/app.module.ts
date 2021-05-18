@@ -6,9 +6,18 @@ import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyWorkoutComponent } from './my-workout/my-workout.component';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
-  declarations: [AppComponent, NavigationBarComponent],
-  imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot()],
+  declarations: [AppComponent, NavigationBarComponent, MyWorkoutComponent, HomeComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
