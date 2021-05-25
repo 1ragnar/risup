@@ -9,9 +9,16 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyWorkoutComponent } from './my-workout/my-workout.component';
 import { HomeComponent } from './home/home.component';
+import { CaloriesComponent } from './calories/calories.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationBarComponent, MyWorkoutComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    NavigationBarComponent,
+    MyWorkoutComponent,
+    HomeComponent,
+    CaloriesComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
