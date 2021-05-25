@@ -15,9 +15,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { CaloriesComponent } from './calories/calories.component';
+
 
 @NgModule({
-  declarations: [AppComponent, NavigationBarComponent, MyWorkoutComponent, HomeComponent, WorkoutCardComponent],
+  declarations: [
+    AppComponent,
+    NavigationBarComponent,
+    MyWorkoutComponent,
+    HomeComponent,
+    CaloriesComponent,
+    WorkoutCardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
