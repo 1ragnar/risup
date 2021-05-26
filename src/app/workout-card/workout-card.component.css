@@ -10,3 +10,23 @@
 .mat-card-actions .flex-spacer{
     width: 100%;
 }
+
+.mat-raised-button.mat-EASY{
+  color: #f0fff3;
+  background-color: #155724;
+}
+
+.mat-raised-button.mat-MEDIUM{
+    color: #f0fff3;
+    background-color: #ff8000;
+}
+
+.mat-raised-button.mat-HARD{
+    color: #f0fff3;
+    background-color: #990000;
+}
+
+.mat-raised-button.mat-Recommended{
+    color: #f0fff3;
+    background-color: #FFDF00;
+}
