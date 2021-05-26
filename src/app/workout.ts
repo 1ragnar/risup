@@ -4,4 +4,5 @@ export interface Workout {
     type: string;
     difficulty: string;
     recommended: boolean;
+    image: string;
   }

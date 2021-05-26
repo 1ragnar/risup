@@ -2,7 +2,7 @@
     <mat-card-header>
         <mat-card-title>{{data.name}}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="/assets/img/exerciseTest.jpg">
+    <img mat-card-image src={{data.image}} style="width: 259px; height:173px;">
     <mat-card-actions>
         <button mat-raised-button color={{data.difficulty}}>{{data.difficulty}}</button>
         <button mat-raised-button color="Recommended" *ngIf="data.recommended">Recommended</button>
