@@ -1,0 +1,23 @@
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.modal-container {
+  width: 600;
+  height: 600px;
+}
+
+.input-full-width {
+  width: 100%;
+}
