@@ -41,17 +41,8 @@
     Search
   </button>
 </div>
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile [colspan]="1" [rowspan]="2">
-    <app-workout-card></app-workout-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="2">
-    <app-workout-card></app-workout-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="2">
-    <app-workout-card></app-workout-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="2">
-    <app-workout-card></app-workout-card>
+<mat-grid-list #grid [cols]="cols" rowHeight="5:5" gutterSize="5px">
+  <mat-grid-tile *ngFor="let workout of workouts">
+    <app-workout-card [data]="workout"></app-workout-card>
   </mat-grid-tile>
 </mat-grid-list>
