@@ -1,0 +1,35 @@
+.search-bar {
+  height: 60px;
+  width: 100%;
+  background-color: #f7ce3e;
+  padding: 0 5% 0 5%;
+  justify-content: space-between;
+  display: flex;
+}
+
+.select {
+  margin-left: 20;
+}
+
+.checkbox-section {
+  margin-top: 25px;
+}
+
+.checkbox-margin {
+  margin: 0 15px;
+}
+
+.input-form {
+  min-width: 100px;
+  max-width: 200px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.search-button {
+  margin: 10px;
+}

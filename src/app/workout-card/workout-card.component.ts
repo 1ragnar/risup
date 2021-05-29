@@ -4,15 +4,12 @@ import { Workout } from '../workout';
 @Component({
   selector: 'app-workout-card',
   templateUrl: './workout-card.component.html',
-  styleUrls: ['./workout-card.component.css']
+  styleUrls: ['./workout-card.component.css'],
 })
 export class WorkoutCardComponent implements OnInit {
+  constructor() {}
 
-  @Input() data: Workout
+  @Input() data: Workout;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

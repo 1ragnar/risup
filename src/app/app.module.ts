@@ -10,12 +10,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyWorkoutComponent } from './my-workout/my-workout.component';
 import { HomeComponent } from './home/home.component';
 import { WorkoutCardComponent } from './workout-card/workout-card.component';
+import { MatSelectModule } from '@angular/material/select';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CaloriesComponent } from './calories/calories.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalContentComponent } from './modal-content/modal-content.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +31,7 @@ import { CaloriesComponent } from './calories/calories.component';
     HomeComponent,
     CaloriesComponent,
     WorkoutCardComponent,
+    ModalContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +43,14 @@ import { CaloriesComponent } from './calories/calories.component';
     MatCardModule,
     MatIconModule,
     MatGridListModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatDialogModule,
+    FormsModule,
   ],
   providers: [],
+  entryComponents: [ModalContentComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
