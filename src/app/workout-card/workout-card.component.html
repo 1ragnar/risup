@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (click)="openWorkout()">
   <mat-card-header>
     <mat-card-title>{{ data.name }}</mat-card-title>
   </mat-card-header>
@@ -8,10 +8,10 @@
     style="width: 259px; height: 173px"
   />
   <mat-card-actions>
-    <button mat-raised-button color="{{ data.difficulty }}">
+    <button mat-raised-button color="{{ data.difficulty }}" [disabled]="true">
       {{ data.difficulty }}
     </button>
-    <button mat-raised-button color="Recommended" *ngIf="data.recommended">
+    <button mat-raised-button color="Recommended" *ngIf="data.recommended" [disabled]="true">
       Recommended
     </button>
   </mat-card-actions>

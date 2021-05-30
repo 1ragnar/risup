@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
         }
       });
   }
-
+  
   ngOnInit() {
     this.workouts = WORKOUTS;
   }
