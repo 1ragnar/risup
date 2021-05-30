@@ -1,9 +1,17 @@
 <h1 mat-dialog-title>{{data.name}}</h1>
 <div mat-dialog-content>
-  <p>{{data.difficulty}}</p>
+  <p>{{ data.video }}</p>
+  <p  align="center">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/IODxDxX7oi4" frameborder="0" allowfullscreen></iframe>
+  </p>
+  <p>
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula lectus at mauris feugiat pellentesque. Donec efficitur lacus quis dui malesuada, vitae mollis quam commodo. Morbi tincidunt arcu quis purus venenatis vulputate. Integer id aliquet felis. Morbi purus tellus, molestie vitae ornare at, auctor quis enim. Mauris ac hendrerit lacus, ut ultrices leo. Morbi ac iaculis leo. Vestibulum ac pretium magna, id commodo nunc. Quisque volutpat egestas varius. Cras et nisi fringilla dui fringilla vulputate. Pellentesque ut tincidunt justo, ut tristique sem. Sed laoreet odio mi, sed rhoncus lorem fringilla at. Aenean bibendum ultrices mi a aliquam. Nullam et blandit lectus.
+    
+    Vivamus laoreet, velit in auctor sodales, velit leo fringilla turpis, pharetra pharetra eros augue tempor augue. Quisque semper rutrum erat eget pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec volutpat, turpis eget cursus finibus, lacus metus fermentum elit, ut blandit tortor nunc nec magna. In hac habitasse platea dictumst. Duis eget urna orci. Morbi egestas ac neque id sodales. Suspendisse faucibus semper bibendum. Mauris quis mollis tellus, nec pretium purus. Aliquam erat volutpat. Fusce maximus tristique augue at pharetra. "
+  </p>
 </div>
 
-<div mat-dialog-actions>
+<div mat-dialog-actions align="right">
   <button class = "mat-raised-button" (click)="onNoClick()">
     End trainning
   </button>
