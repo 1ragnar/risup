@@ -1,0 +1,25 @@
+.select {
+  margin-left: 20;
+}
+.container {
+    position: relative;
+}
+  
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.input-form {
+  min-width: 100px;
+  max-width: 200px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.input-full-width {
+  width: 100%;
+}

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
@@ -24,6 +25,9 @@ import { ModalContentComponent } from './modal-content/modal-content.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRippleModule } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CaloriesComponent,
     WorkoutCardComponent,
     ModalContentComponent,
+    //SearchComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,6 +56,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     FormsModule,
     NgbModule,
+    // Modules for the calories
+    MatFormFieldModule,
+    MatRippleModule,
+  ],
+  exports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
   ],
   providers: [],
   entryComponents: [ModalContentComponent],
