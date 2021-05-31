@@ -24,6 +24,10 @@ import { ModalContentComponent } from './modal-content/modal-content.component';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragAndDropListComponent } from './drag-and-drop-list/drag-and-drop-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import { DragAndDropListComponent } from './drag-and-drop-list/drag-and-drop-lis
     WorkoutCardComponent,
     ModalContentComponent,
     DragAndDropListComponent,
+    //SearchComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -52,6 +58,16 @@ import { DragAndDropListComponent } from './drag-and-drop-list/drag-and-drop-lis
     MatDialogModule,
     FormsModule,
     DragDropModule,
+    NgbModule,
+    // Modules for the calories
+    MatFormFieldModule,
+    MatRippleModule,
+  ],
+  exports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
   ],
   providers: [],
   entryComponents: [ModalContentComponent],

@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Add Calories</h1>
+<div mat-dialog-content class="container">
+ <!--<mat-form-field>
+    <input matInput [(ngModel)]="data.numCalories" placeholder="Number of Calories">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.numCalories" placeholder="Number of Calories">
+  </mat-form-field> -->
+    <input class="form-control" style="margin-bottom: 5px;" placeholder="Number of Calories">
+    <input class="form-control" style="margin-bottom: 10px;" placeholder="Number of Calories">
+  <div class="vertical-center">
+    <button mat-button class="btn btn-secondary" style="margin-bottom: 40px;">Upload Image</button> 
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-secondary" style="float: right;" (click)="add()">Add</button> 
+  <!--<button mat-button [mat-dialog-close]="data.numCalories" cdkFocusInitial>Ok</button> 
+  <button mat-button  cdkFocusInitial>Ok</button>-->
+</div>
