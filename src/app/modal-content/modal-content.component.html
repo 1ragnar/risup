@@ -29,7 +29,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill" class="select" style="width: 60%">
-        <mat-label>Ecercises</mat-label>
+        <mat-label>Excercises</mat-label>
         <mat-select (selectionChange)="onTypeChange($event.value)">
           <mat-option
             *ngFor="let excercise of currentExercises"
@@ -50,6 +50,7 @@
       </button>
     </div>
     <div style="width: 50%; float: left"></div>
+    <app-drag-and-drop-list></app-drag-and-drop-list>
     <!-- <button (click)="passBack()" type="submit" class="btn btn-primary w-100">
       Pass back
     </button> -->

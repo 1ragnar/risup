@@ -22,6 +22,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalContentComponent } from './modal-content/modal-content.component';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragAndDropListComponent } from './drag-and-drop-list/drag-and-drop-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     CaloriesComponent,
     WorkoutCardComponent,
     ModalContentComponent,
+    DragAndDropListComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatDialogModule,
     FormsModule,
+    DragDropModule,
   ],
   providers: [],
   entryComponents: [ModalContentComponent],
