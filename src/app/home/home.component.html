@@ -1,4 +1,4 @@
-<div class="search-bar">
+<div class="search-bar" align="center">
   <mat-form-field appearance="fill" class="select">
     <mat-label>Difficulty</mat-label>
     <mat-select (selectionChange)="onDifficultyChange($event.value)">
@@ -41,8 +41,9 @@
     Search
   </button>
 </div>
+
 <mat-grid-list #grid [cols]="cols" rowHeight="5:5" gutterSize="5px">
   <mat-grid-tile *ngFor="let workout of workouts">
-    <app-workout-card [data]="workout"></app-workout-card>
+    <app-workout-card [data]="workout" class="rounded-lg light-blue darken-4"></app-workout-card>
   </mat-grid-tile>
 </mat-grid-list>

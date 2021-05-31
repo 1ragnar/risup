@@ -1,4 +1,4 @@
-<div class="search-bar">
+<div class="search-bar" align="center">
   <mat-form-field appearance="fill" class="select">
     <mat-label>Difficulty</mat-label>
     <mat-select (selectionChange)="onDifficultyChange($event.value)">
@@ -29,9 +29,10 @@
     Search
   </button>
 </div>
-<button
+<button mat-button
   (click)="openModal()"
   style="position: absolute; bottom: 20px; right: 20px"
 >
+  <mat-icon>add</mat-icon>
   Make new exercise
 </button>
