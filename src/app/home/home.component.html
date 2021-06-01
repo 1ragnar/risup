@@ -1,10 +1,10 @@
-<div  align="center" style="padding-top:2%;">
+<div align="center" style="padding-top: 2%">
   <div class="search-bar">
     <mat-form-field appearance="fill" class="select">
       <mat-label>Difficulty</mat-label>
       <mat-select (selectionChange)="onDifficultyChange($event.value)">
         <mat-option
-          *ngFor="let difficulty of dificulties"
+          *ngFor="let difficulty of difficulties"
           [value]="difficulty.value"
         >
           {{ difficulty.viewValue }}
@@ -19,7 +19,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <section class="checkbox-section" style="margin-top: 1%;">
+    <section class="checkbox-section" style="margin-top: 1%">
       <mat-checkbox
         color="primary"
         class="checkbox-margin"
@@ -46,6 +46,9 @@
 </div>
 <mat-grid-list #grid [cols]="cols" rowHeight="5:5" gutterSize="5px">
   <mat-grid-tile *ngFor="let workout of workouts">
-    <app-workout-card [data]="workout" class="rounded-lg light-blue darken-4"></app-workout-card>
+    <app-workout-card
+      [data]="workout"
+      class="rounded-lg light-blue darken-4"
+    ></app-workout-card>
   </mat-grid-tile>
 </mat-grid-list>

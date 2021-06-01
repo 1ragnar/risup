@@ -24,6 +24,7 @@
         <mat-select
           ngForm
           exercise
+          [(value)]="type"
           (selectionChange)="onTypeChange($event.value)"
           #typesForm="ngForm"
           name="workout-types"

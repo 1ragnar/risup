@@ -1,10 +1,11 @@
 <div align="center" style="padding-top: 2%">
-  <div class="search-bar" align="center">
+  <div class="search-bar" align="center" style="padding: 0 2% 0 2%">
     <mat-form-field appearance="fill" class="select">
       <mat-label>Difficulty</mat-label>
       <mat-select (selectionChange)="onDifficultyChange($event.value)">
+        <mat-option value="0"></mat-option>
         <mat-option
-          *ngFor="let difficulty of dificulties"
+          *ngFor="let difficulty of difficulties"
           [value]="difficulty.value"
         >
           {{ difficulty.viewValue }}
@@ -14,6 +15,7 @@
     <mat-form-field appearance="fill" class="select">
       <mat-label>Type</mat-label>
       <mat-select (selectionChange)="onTypeChange($event.value)">
+        <mat-option value="0"></mat-option>
         <mat-option *ngFor="let type of types" [value]="type.value">
           {{ type.viewValue }}
         </mat-option>
@@ -22,22 +24,27 @@
 
     <form class="input-form">
       <mat-form-field class="input-full-width">
-        <mat-label>Tags</mat-label>
+        <mat-label>Name</mat-label>
         <input
           matInput
-          placeholder="Tag"
-          (input)="tags = $event.target.value"
+          placeholder="Name"
+          (input)="name = $event.target.value"
         />
       </mat-form-field>
     </form>
-    <button mat-raised-button color="primary" class="search-button">
+    <button
+      mat-raised-button
+      color="primary"
+      class="search-button"
+      (click)="search()"
+    >
       Search
     </button>
   </div>
 </div>
 <div>
   <mat-grid-list #grid [cols]="cols" rowHeight="5:5" gutterSize="5px">
-    <mat-grid-tile *ngFor="let workout of workouts">
+    <mat-grid-tile *ngFor="let workout of selectedWorkouts">
       <app-workout-card
         [data]="workout"
         class="rounded-lg light-blue darken-4"

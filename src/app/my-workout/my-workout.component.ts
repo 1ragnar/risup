@@ -15,25 +15,26 @@ export class MyWorkoutComponent implements OnInit {
   difficulty: string;
   type: string;
   isChecked: boolean = true;
-  tags: string;
+  name: string;
   workouts: Workout[] = [
     {
       id: 0,
       name: 'Push-ups',
       type: 'ARM',
       difficulty: 'EASY',
-      recommended: true,
+      recommended: false,
       image: '/assets/img/Pushups.jpg',
     },
     {
       id: 1,
       name: 'Chest 1',
       type: 'CHEST',
-      difficulty: 'EASY',
-      recommended: true,
+      difficulty: 'MEDIUM',
+      recommended: false,
       image: '/assets/img/Chest1.jpg',
     },
   ];
+  selectedWorkouts: Workout[] = this.workouts;
   cols: number;
 
   gridByBreakpoint = {
@@ -95,7 +96,7 @@ export class MyWorkoutComponent implements OnInit {
     });
   }
 
-  dificulties: ISelectData[] = [
+  difficulties: ISelectData[] = [
     { value: 'easy', viewValue: 'Easy' },
     { value: 'medium', viewValue: 'Medium' },
     { value: 'hard', viewValue: 'Hard' },
@@ -122,5 +123,20 @@ export class MyWorkoutComponent implements OnInit {
 
   onResize(event) {
     this.breakpoint = event.target.innerWidth <= 400 ? 1 : 6;
+  }
+
+  search() {
+    let filteredWorkouts = this.workouts.filter(
+      (item: Workout) =>
+        (this.name && item.name.match(this.name)) ||
+        (this.difficulty &&
+          item.difficulty.match(this.difficulty.toUpperCase())) ||
+        (this.type && item.type.match(this.type.toUpperCase()))
+    );
+    if (!this.name && this.difficulty === '0' && !this.type) {
+      filteredWorkouts = this.workouts;
+    }
+
+    this.selectedWorkouts = filteredWorkouts;
   }
 }

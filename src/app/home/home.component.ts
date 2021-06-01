@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     xs: 1,
   };
 
-  dificulties: ISelectData[] = [
+  difficulties: ISelectData[] = [
     { value: 'easy', viewValue: 'Easy' },
     { value: 'medium', viewValue: 'Medium' },
     { value: 'hard', viewValue: 'Hard' },
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
         }
       });
   }
-  
+
   ngOnInit() {
     this.workouts = WORKOUTS;
   }
