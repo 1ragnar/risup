@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ISelectData } from '../home/home.component';
 import { ModalContentComponent } from '../modal-content/modal-content.component';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { Workout } from '../workout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-my-workout',
@@ -14,7 +16,66 @@ export class MyWorkoutComponent implements OnInit {
   type: string;
   isChecked: boolean = true;
   tags: string;
-  constructor(public modalService: NgbModal) {}
+  workouts: Workout[] = [
+    {
+      id: 0,
+      name: 'Push-ups',
+      type: 'ARM',
+      difficulty: 'EASY',
+      recommended: true,
+      image: '/assets/img/Pushups.jpg',
+    },
+    {
+      id: 1,
+      name: 'Chest 1',
+      type: 'CHEST',
+      difficulty: 'EASY',
+      recommended: true,
+      image: '/assets/img/Chest1.jpg',
+    },
+  ];
+  cols: number;
+
+  gridByBreakpoint = {
+    xl: 5,
+    lg: 4,
+    md: 3,
+    sm: 2,
+    xs: 1,
+  };
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public modalService: NgbModal
+  ) {
+    this.breakpointObserver
+      .observe([
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+        Breakpoints.XLarge,
+      ])
+      .subscribe((result) => {
+        if (result.matches) {
+          if (result.breakpoints[Breakpoints.XSmall]) {
+            this.cols = this.gridByBreakpoint.xs;
+          }
+          if (result.breakpoints[Breakpoints.Small]) {
+            this.cols = this.gridByBreakpoint.sm;
+          }
+          if (result.breakpoints[Breakpoints.Medium]) {
+            this.cols = this.gridByBreakpoint.md;
+          }
+          if (result.breakpoints[Breakpoints.Large]) {
+            this.cols = this.gridByBreakpoint.lg;
+          }
+          if (result.breakpoints[Breakpoints.XLarge]) {
+            this.cols = this.gridByBreakpoint.xl;
+          }
+        }
+      });
+  }
 
   openModal() {
     let ngbModalOptions: NgbModalOptions = {
