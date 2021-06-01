@@ -1,6 +1,15 @@
-<div align="center" style="padding-top: 2%">
-  <div class="search-bar" align="center" style="padding: 0 2% 0 2%">
-    <mat-form-field appearance="fill" class="select">
+<div align="center" style="padding: 2% 2% 0% 2%">
+  <div
+    class="search-bar"
+    align="center"
+    style="
+      padding: 0 2% 0 2%;
+      border-radius: 25px;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <mat-form-field class="select">
       <mat-label>Difficulty</mat-label>
       <mat-select (selectionChange)="onDifficultyChange($event.value)">
         <mat-option value="0"></mat-option>
@@ -12,7 +21,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" class="select">
+    <mat-form-field class="select">
       <mat-label>Type</mat-label>
       <mat-select (selectionChange)="onTypeChange($event.value)">
         <mat-option value="0"></mat-option>
@@ -24,10 +33,10 @@
 
     <form class="input-form">
       <mat-form-field class="input-full-width">
-        <mat-label>Name</mat-label>
+        <mat-label>Name of workout</mat-label>
         <input
           matInput
-          placeholder="Name"
+          placeholder="Name of workout"
           (input)="name = $event.target.value"
         />
       </mat-form-field>

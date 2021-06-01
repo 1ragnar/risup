@@ -20,7 +20,7 @@ export class MyWorkoutComponent implements OnInit {
     {
       id: 0,
       name: 'Push-ups',
-      type: 'ARM',
+      type: 'ARMS',
       difficulty: 'EASY',
       recommended: false,
       image: '/assets/img/Pushups.jpg',
@@ -80,7 +80,7 @@ export class MyWorkoutComponent implements OnInit {
 
   openModal() {
     let ngbModalOptions: NgbModalOptions = {
-      backdrop: 'static',
+      // backdrop: 'static',
       keyboard: false,
       size: 'xl',
     };
@@ -126,16 +126,22 @@ export class MyWorkoutComponent implements OnInit {
   }
 
   search() {
-    let filteredWorkouts = this.workouts.filter(
-      (item: Workout) =>
-        (this.name && item.name.match(this.name)) ||
-        (this.difficulty &&
-          item.difficulty.match(this.difficulty.toUpperCase())) ||
-        (this.type && item.type.match(this.type.toUpperCase()))
-    );
-    if (!this.name && this.difficulty === '0' && !this.type) {
-      filteredWorkouts = this.workouts;
-    }
+    let filteredWorkouts = this.workouts.filter((item: Workout) => {
+      let finded = true;
+      if (this.name && !item.name.match(this.name)) {
+        finded = false;
+      }
+      if (this.type !== '0' && !item.type.match(this.type?.toUpperCase())) {
+        finded = false;
+      }
+      if (
+        this.difficulty !== '0' &&
+        !item.difficulty.match(this.difficulty?.toUpperCase())
+      ) {
+        finded = false;
+      }
+      return finded;
+    });
 
     this.selectedWorkouts = filteredWorkouts;
   }
