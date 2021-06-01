@@ -1,6 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ISelectData } from '../home/home.component';
+import { IDragAndDropItem } from '../drag-and-drop-list/drag-and-drop-list.component';
 
 @Component({
   selector: 'app-modal-content',
@@ -10,7 +17,10 @@ import { ISelectData } from '../home/home.component';
 export class ModalContentComponent implements OnInit {
   type: string;
   currentExercises: ISelectData[];
-  numberOfRepetition: string;
+  numberOfRepetition: string = '';
+  exercise: string;
+  createdExercises: IDragAndDropItem[] = [];
+
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
   constructor(public activeModal: NgbActiveModal) {}
 
@@ -78,6 +88,10 @@ export class ModalContentComponent implements OnInit {
     }
   }
 
+  onExerciseChange(newExercise) {
+    this.exercise = newExercise;
+  }
+
   ngOnInit(): void {
     this.currentExercises = this.absWorkout.concat(
       this.armsWorkout.concat(
@@ -85,4 +99,22 @@ export class ModalContentComponent implements OnInit {
       )
     );
   }
+
+  saveExercise() {
+    if (this.type && this.numberOfRepetition && this.exercise) {
+      this.createdExercises.push({
+        id: Math.round(Math.random() * 1000000),
+        order: Math.round(Math.random() * 1000000),
+        numberOfRepetition: +this.numberOfRepetition,
+        workoutTypeName: this.type,
+        exercisesName: this.exercise,
+      });
+
+      this.type = undefined;
+      this.numberOfRepetition = '';
+      this.exercise = undefined;
+    }
+  }
+
+  createWorkout() {}
 }

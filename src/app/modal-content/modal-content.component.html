@@ -13,8 +13,7 @@
   <div class="modal-body">
     <div
       style="
-        width: 50%;
-        float: left;
+        width: 100%;
         flex-direction: column;
         display: flex;
         align-items: center;
@@ -22,15 +21,30 @@
     >
       <mat-form-field appearance="fill" class="select" style="width: 60%">
         <mat-label>Workout types</mat-label>
-        <mat-select (selectionChange)="onTypeChange($event.value)">
+        <mat-select
+          ngForm
+          [(value)]="type"
+          exercise
+          (selectionChange)="onTypeChange($event.value)"
+          #typesForm="ngForm"
+          name="workout-types"
+        >
+          <mat-option value="0"></mat-option>
           <mat-option *ngFor="let type of types" [value]="type.value">
             {{ type.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill" class="select" style="width: 60%">
-        <mat-label>Exercises</mat-label>
-        <mat-select (selectionChange)="onTypeChange($event.value)">
+        <mat-label>Excercises</mat-label>
+        <mat-select
+          ngForm
+          [(value)]="exercise"
+          (selectionChange)="onExerciseChange($event.value)"
+          #excercisesForm="ngForm"
+          name="excercises"
+        >
+          <mat-option value="0"></mat-option>
           <mat-option
             *ngFor="let excercise of currentExercises"
             [value]="excercise.value"
@@ -42,16 +56,34 @@
       <form class="input-form" style="width: 60%">
         <mat-form-field class="input-full-width">
           <mat-label>Number of repetitions</mat-label>
-          <input matInput (input)="numberOfRepetition = $event.target.value" />
+          <input
+            matInput
+            [(value)]="numberOfRepetition"
+            (input)="numberOfRepetition = $event.target.value"
+          />
         </mat-form-field>
       </form>
-      <button mat-raised-button color="primary" class="search-button">
+      <button
+        mat-raised-button
+        color="primary"
+        class="search-button"
+        (click)="saveExercise()"
+      >
         Save
       </button>
     </div>
-    <div style="width: 50%; float: left"></div>
-    <!-- <button (click)="passBack()" type="submit" class="btn btn-primary w-100">
-      Pass back
-    </button> -->
+    <div style="width: 50%; float: left">
+      <app-drag-and-drop-list
+        [list]="createdExercises"
+      ></app-drag-and-drop-list>
+      <button
+        (click)="createWorkout()"
+        color="primary"
+        mat-raised-button
+        class="search-button"
+      >
+        Create workout
+      </button>
+    </div>
   </div>
 </div>
