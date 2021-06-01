@@ -1,6 +1,6 @@
 <div  align="center" style="padding: 2% 2% 0% 2%;">
   <div class="search-bar" style="padding:  0 2% 0 2%; border-radius: 25px;">
-    <mat-form-field appearance="fill" class="select">
+    <mat-form-field class="select">
       <mat-label>Difficulty</mat-label>
       <mat-select (selectionChange)="onDifficultyChange($event.value)">
         <mat-option
@@ -11,7 +11,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" class="select">
+    <mat-form-field class="select">
       <mat-label>Type</mat-label>
       <mat-select (selectionChange)="onTypeChange($event.value)">
         <mat-option *ngFor="let type of types" [value]="type.value">
