@@ -23,7 +23,6 @@
         <mat-label>Workout types</mat-label>
         <mat-select
           ngForm
-          [(value)]="type"
           exercise
           (selectionChange)="onTypeChange($event.value)"
           #typesForm="ngForm"
