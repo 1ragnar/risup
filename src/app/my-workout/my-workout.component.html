@@ -1,37 +1,40 @@
-<div class="search-bar" align="center">
-  <mat-form-field appearance="fill" class="select">
-    <mat-label>Difficulty</mat-label>
-    <mat-select (selectionChange)="onDifficultyChange($event.value)">
-      <mat-option
-        *ngFor="let difficulty of dificulties"
-        [value]="difficulty.value"
-      >
-        {{ difficulty.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="select">
-    <mat-label>Type</mat-label>
-    <mat-select (selectionChange)="onTypeChange($event.value)">
-      <mat-option *ngFor="let type of types" [value]="type.value">
-        {{ type.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <form class="input-form">
-    <mat-form-field class="input-full-width">
-      <mat-label>Tags</mat-label>
-      <input matInput placeholder="Tag" (input)="tags = $event.target.value" />
+<div  align="center" style="padding-top:2%;">
+  <div class="search-bar" align="center">
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Difficulty</mat-label>
+      <mat-select (selectionChange)="onDifficultyChange($event.value)">
+        <mat-option
+          *ngFor="let difficulty of dificulties"
+          [value]="difficulty.value"
+        >
+          {{ difficulty.viewValue }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-  </form>
-  <button mat-raised-button color="primary" class="search-button">
-    Search
-  </button>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Type</mat-label>
+      <mat-select (selectionChange)="onTypeChange($event.value)">
+        <mat-option *ngFor="let type of types" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form class="input-form">
+      <mat-form-field class="input-full-width">
+        <mat-label>Tags</mat-label>
+        <input matInput placeholder="Tag" (input)="tags = $event.target.value" />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" class="search-button">
+      Search
+    </button>
+  </div>
 </div>
-<button mat-button
+<button mat-raised-button
   (click)="openModal()"
   style="position: absolute; bottom: 20px; right: 20px"
+  color="primary"
 >
   <mat-icon>add</mat-icon>
   Make new exercise
