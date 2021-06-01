@@ -1,47 +1,49 @@
-<div class="search-bar" align="center">
-  <mat-form-field appearance="fill" class="select">
-    <mat-label>Difficulty</mat-label>
-    <mat-select (selectionChange)="onDifficultyChange($event.value)">
-      <mat-option
-        *ngFor="let difficulty of dificulties"
-        [value]="difficulty.value"
-      >
-        {{ difficulty.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="select">
-    <mat-label>Type</mat-label>
-    <mat-select (selectionChange)="onTypeChange($event.value)">
-      <mat-option *ngFor="let type of types" [value]="type.value">
-        {{ type.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <section class="checkbox-section">
-    <mat-checkbox
-      class="checkbox-margin"
-      [checked]="isChecked"
-      (change)="onCheckboxChanged($event)"
-      >Recomended</mat-checkbox
-    >
-  </section>
-
-  <form class="input-form">
-    <mat-form-field class="input-full-width">
-      <mat-label>Search</mat-label>
-      <input
-        matInput
-        placeholder="Name of exercise"
-        (input)="text = $event.target.value"
-      />
+<div  align="center" style="padding-top:2%;">
+  <div class="search-bar">
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Difficulty</mat-label>
+      <mat-select (selectionChange)="onDifficultyChange($event.value)">
+        <mat-option
+          *ngFor="let difficulty of dificulties"
+          [value]="difficulty.value"
+        >
+          {{ difficulty.viewValue }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-  </form>
-  <button mat-raised-button color="primary" class="search-button">
-    Search
-  </button>
-</div>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Type</mat-label>
+      <mat-select (selectionChange)="onTypeChange($event.value)">
+        <mat-option *ngFor="let type of types" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <section class="checkbox-section" style="margin-top: 1%;">
+      <mat-checkbox
+        color="primary"
+        class="checkbox-margin"
+        [checked]="isChecked"
+        (change)="onCheckboxChanged($event)"
+        >Recomended</mat-checkbox
+      >
+    </section>
 
+    <form class="input-form">
+      <mat-form-field class="input-full-width">
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          placeholder="Name of exercise"
+          (input)="text = $event.target.value"
+        />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" class="search-button">
+      Search
+    </button>
+  </div>
+</div>
 <mat-grid-list #grid [cols]="cols" rowHeight="5:5" gutterSize="5px">
   <mat-grid-tile *ngFor="let workout of workouts">
     <app-workout-card [data]="workout" class="rounded-lg light-blue darken-4"></app-workout-card>

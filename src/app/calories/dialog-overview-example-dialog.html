@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add Calories</h1>
+<h1 mat-dialog-title color="light-blue">Add Calories</h1>
 <div mat-dialog-content class="container">
  <!--<mat-form-field>
     <input matInput [(ngModel)]="data.numCalories" placeholder="Number of Calories">
@@ -6,14 +6,20 @@
   <mat-form-field>
     <input matInput [(ngModel)]="data.numCalories" placeholder="Number of Calories">
   </mat-form-field> -->
-    <input class="form-control" style="margin-bottom: 5px;" placeholder="Number of Calories">
-    <input class="form-control" style="margin-bottom: 10px;" placeholder="Number of Calories">
+  <div>
+    <h2>Number of Calories</h2>
+    <input class="form-control" style="margin-bottom: 5px;" placeholder="Ex: 1812">
+  </div>
+  <div>
+    <h2>Food Name</h2>
+    <input class="form-control" style="margin-bottom: 10px;" placeholder="Ex: Banana">
+  </div>
   <div class="vertical-center">
-    <button mat-button class="btn btn-secondary" style="margin-bottom: 40px;">Upload Image</button> 
+    <button mat-raised-button class="btn btn-secondary" style="margin-bottom: 40px;" color="primary">Upload Image</button> 
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="btn btn-secondary" style="float: right;" (click)="add()">Add</button> 
+  <button mat--raised-button class="btn btn-secondary" color="primary" style="float: right;" (click)="add()" >Add</button> 
   <!--<button mat-button [mat-dialog-close]="data.numCalories" cdkFocusInitial>Ok</button> 
   <button mat-button  cdkFocusInitial>Ok</button>-->
 </div>

@@ -1,7 +1,6 @@
 import { Component,  Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
-
 export interface DialogData {
   numCalories: number;
   foodname: string;
@@ -21,7 +20,7 @@ export class CaloriesComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(CaloriesDialog, {
       width: '500px',
-      height:'300px',
+      height:'400px',
       data: {numCalories: this.numCalories, foodname: this.foodname}
     });
 
