@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit {
   breakpoint: number;
   difficulty: string;
   type: string;
-  isChecked: boolean = true;
-  text: string;
+  isChecked: boolean = false;
   workouts: Workout[];
-
+  name: string;
   cols: number;
+  selectedWorkouts: Workout[];
 
   gridByBreakpoint = {
     xl: 5,
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     xs: 1,
   };
 
-  dificulties: ISelectData[] = [
+  difficulties: ISelectData[] = [
     { value: 'easy', viewValue: 'Easy' },
     { value: 'medium', viewValue: 'Medium' },
     { value: 'hard', viewValue: 'Hard' },
@@ -73,9 +73,10 @@ export class HomeComponent implements OnInit {
         }
       });
   }
-  
+
   ngOnInit() {
     this.workouts = WORKOUTS;
+    this.selectedWorkouts = WORKOUTS;
   }
 
   onDifficultyChange(newDifficulty) {
@@ -92,5 +93,28 @@ export class HomeComponent implements OnInit {
 
   onResize(event) {
     this.breakpoint = event.target.innerWidth <= 400 ? 1 : 6;
+  }
+
+  search() {
+    let filteredWorkouts = this.workouts.filter((item: Workout) => {
+      let finded = true;
+      if (this.name && !item.name.match(this.name)) {
+        finded = false;
+      }
+      if (this.type !== '0' && !item.type.match(this.type?.toUpperCase())) {
+        finded = false;
+      }
+      if (
+        this.difficulty !== '0' &&
+        !item.difficulty.match(this.difficulty?.toUpperCase())
+      ) {
+        finded = false;
+      }
+      if (item.recommended !== this.isChecked && this.isChecked) {
+        finded = false;
+      }
+      return finded;
+    });
+    this.selectedWorkouts = filteredWorkouts;
   }
 }

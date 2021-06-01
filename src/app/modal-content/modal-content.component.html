@@ -1,14 +1,14 @@
 <div class="modal-container">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Create workout</h4>
-    <button
+    <!-- <button
       type="button"
       class="close"
       aria-label="Close"
       (click)="activeModal.close()"
     >
       <span aria-hidden="true">&times;</span>
-    </button>
+    </button> -->
   </div>
   <div class="modal-body">
     <div
@@ -24,6 +24,7 @@
         <mat-select
           ngForm
           exercise
+          [(value)]="type"
           (selectionChange)="onTypeChange($event.value)"
           #typesForm="ngForm"
           name="workout-types"

@@ -15,25 +15,26 @@ export class MyWorkoutComponent implements OnInit {
   difficulty: string;
   type: string;
   isChecked: boolean = true;
-  tags: string;
+  name: string;
   workouts: Workout[] = [
     {
       id: 0,
       name: 'Push-ups',
-      type: 'ARM',
+      type: 'ARMS',
       difficulty: 'EASY',
-      recommended: true,
+      recommended: false,
       image: '/assets/img/Pushups.jpg',
     },
     {
       id: 1,
       name: 'Chest 1',
       type: 'CHEST',
-      difficulty: 'EASY',
-      recommended: true,
+      difficulty: 'MEDIUM',
+      recommended: false,
       image: '/assets/img/Chest1.jpg',
     },
   ];
+  selectedWorkouts: Workout[] = this.workouts;
   cols: number;
 
   gridByBreakpoint = {
@@ -79,7 +80,7 @@ export class MyWorkoutComponent implements OnInit {
 
   openModal() {
     let ngbModalOptions: NgbModalOptions = {
-      backdrop: 'static',
+      // backdrop: 'static',
       keyboard: false,
       size: 'xl',
     };
@@ -95,7 +96,7 @@ export class MyWorkoutComponent implements OnInit {
     });
   }
 
-  dificulties: ISelectData[] = [
+  difficulties: ISelectData[] = [
     { value: 'easy', viewValue: 'Easy' },
     { value: 'medium', viewValue: 'Medium' },
     { value: 'hard', viewValue: 'Hard' },
@@ -122,5 +123,26 @@ export class MyWorkoutComponent implements OnInit {
 
   onResize(event) {
     this.breakpoint = event.target.innerWidth <= 400 ? 1 : 6;
+  }
+
+  search() {
+    let filteredWorkouts = this.workouts.filter((item: Workout) => {
+      let finded = true;
+      if (this.name && !item.name.match(this.name)) {
+        finded = false;
+      }
+      if (this.type !== '0' && !item.type.match(this.type?.toUpperCase())) {
+        finded = false;
+      }
+      if (
+        this.difficulty !== '0' &&
+        !item.difficulty.match(this.difficulty?.toUpperCase())
+      ) {
+        finded = false;
+      }
+      return finded;
+    });
+
+    this.selectedWorkouts = filteredWorkouts;
   }
 }
