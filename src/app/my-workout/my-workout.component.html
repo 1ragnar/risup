@@ -1,37 +1,73 @@
-<div class="search-bar">
-  <mat-form-field appearance="fill" class="select">
-    <mat-label>Difficulty</mat-label>
-    <mat-select (selectionChange)="onDifficultyChange($event.value)">
-      <mat-option
-        *ngFor="let difficulty of dificulties"
-        [value]="difficulty.value"
-      >
-        {{ difficulty.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="select">
-    <mat-label>Type</mat-label>
-    <mat-select (selectionChange)="onTypeChange($event.value)">
-      <mat-option *ngFor="let type of types" [value]="type.value">
-        {{ type.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <form class="input-form">
-    <mat-form-field class="input-full-width">
-      <mat-label>Tags</mat-label>
-      <input matInput placeholder="Tag" (input)="tags = $event.target.value" />
+<div align="center" style="padding: 2% 2% 0% 2%">
+  <div
+    class="search-bar"
+    align="center"
+    style="
+      padding: 0 2% 0 2%;
+      border-radius: 25px;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <mat-form-field class="select">
+      <mat-label>Difficulty</mat-label>
+      <mat-select (selectionChange)="onDifficultyChange($event.value)">
+        <mat-option value="0"></mat-option>
+        <mat-option
+          *ngFor="let difficulty of difficulties"
+          [value]="difficulty.value"
+        >
+          {{ difficulty.viewValue }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-  </form>
-  <button mat-raised-button color="primary" class="search-button">
-    Search
-  </button>
+    <mat-form-field class="select">
+      <mat-label>Type</mat-label>
+      <mat-select (selectionChange)="onTypeChange($event.value)">
+        <mat-option value="0"></mat-option>
+        <mat-option *ngFor="let type of types" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form class="input-form">
+      <mat-form-field class="input-full-width">
+        <mat-label>Name of workout</mat-label>
+        <input
+          matInput
+          placeholder="Name of workout"
+          (input)="name = $event.target.value"
+        />
+      </mat-form-field>
+    </form>
+    <button
+      mat-raised-button
+      color="primary"
+      class="search-button"
+      (click)="search()"
+    >
+      Search
+    </button>
+  </div>
+</div>
+<div>
+  <mat-grid-list #grid [cols]="cols" rowHeight="5:5" gutterSize="5px">
+    <mat-grid-tile *ngFor="let workout of selectedWorkouts">
+      <app-workout-card
+        [data]="workout"
+        class="rounded-lg light-blue darken-4"
+      ></app-workout-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
 <button
+  mat-raised-button
   (click)="openModal()"
+  color="primary"
   style="position: absolute; bottom: 20px; right: 20px"
+  color="primary"
 >
+  <mat-icon>add</mat-icon>
   Make new exercise
 </button>

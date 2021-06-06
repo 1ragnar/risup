@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
@@ -23,6 +22,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalContentComponent } from './modal-content/modal-content.component';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragAndDropListComponent } from './drag-and-drop-list/drag-and-drop-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -37,9 +38,10 @@ import { MatRippleModule } from '@angular/material/core';
     CaloriesComponent,
     WorkoutCardComponent,
     ModalContentComponent,
+    DragAndDropListComponent,
     //SearchComponent,
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -55,6 +57,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatInputModule,
     MatDialogModule,
     FormsModule,
+    DragDropModule,
     NgbModule,
     // Modules for the calories
     MatFormFieldModule,

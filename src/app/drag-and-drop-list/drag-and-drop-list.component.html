@@ -1,0 +1,15 @@
+<div class="drag-and-drop-container">
+  <h2>Exercises</h2>
+
+  <div
+    cdkDropList
+    [cdkDropListData]="list"
+    class="drag-and-drop-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="drag-and-drop-box" *ngFor="let item of list" cdkDrag>
+      {{ item.exercisesName }} {{ item.numberOfRepetition }}
+      {{ item.workoutTypeName }}
+    </div>
+  </div>
+</div>

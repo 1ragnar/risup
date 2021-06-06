@@ -2,7 +2,14 @@ import { Component,Output, EventEmitter } from '@angular/core';
 //import { ModalContentComponent } from '../modal-content/modal-content.component';
 import { NgbModal, NgbModalOptions,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+<<<<<<< HEAD
 
+=======
+export interface DialogData {
+  numCalories: number;
+  foodname: string;
+}
+>>>>>>> f7313e85434743ca3adbf59bc344f2328f07c9a0
 
 @Component({
   selector: 'app-calories',
@@ -18,7 +25,7 @@ export class CaloriesComponent {
   openDialog(): void {
     /*const dialogRef = this.dialog.open(CaloriesDialog, {
       width: '500px',
-      height:'300px',
+      height:'400px',
       data: {numCalories: this.numCalories, foodname: this.foodname}
     });*/
     let ngbModalOptions: NgbModalOptions = {
