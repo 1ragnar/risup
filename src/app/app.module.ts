@@ -28,6 +28,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRippleModule } from '@angular/material/core';
+import { CaloriesModalComponent } from './calories-modal/calories-modal.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -39,6 +43,7 @@ import { MatRippleModule } from '@angular/material/core';
     WorkoutCardComponent,
     ModalContentComponent,
     DragAndDropListComponent,
+    CaloriesModalComponent,
     //SearchComponent,
   ],
 

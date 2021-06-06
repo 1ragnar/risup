@@ -1,15 +1,7 @@
 import { Component,Output, EventEmitter } from '@angular/core';
-//import { ModalContentComponent } from '../modal-content/modal-content.component';
-import { NgbModal, NgbModalOptions,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { CaloriesModalComponent } from '../calories-modal/calories-modal.component';
 
-<<<<<<< HEAD
-
-=======
-export interface DialogData {
-  numCalories: number;
-  foodname: string;
-}
->>>>>>> f7313e85434743ca3adbf59bc344f2328f07c9a0
 
 @Component({
   selector: 'app-calories',
@@ -29,12 +21,12 @@ export class CaloriesComponent {
       data: {numCalories: this.numCalories, foodname: this.foodname}
     });*/
     let ngbModalOptions: NgbModalOptions = {
-      backdrop: 'static',
+      //backdrop: 'static',
       keyboard: false,
       size: 'xl',
     };
     const modalRef = this.dialog.open(
-      CaloriesDialog,
+      CaloriesModalComponent,
       ngbModalOptions
     );
 
@@ -57,7 +49,7 @@ export class CaloriesComponent {
     this.foodname = newfoodname;
   }
 }
-
+/*
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'dialog-overview-example-dialog.html',
@@ -76,6 +68,7 @@ export class CaloriesDialog {
     this.passEntry.emit(this.numCalories);
     this.activeModal.close(this.numCalories);
   }
+  ngOnInit(): void {}
 }
-
+*/
 
