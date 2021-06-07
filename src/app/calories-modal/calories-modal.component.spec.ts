@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CaloriesComponent } from './calories.component';
+import { CaloriesModalComponent } from './calories-modal.component';
 
-
-describe('CaloriesComponent', () => {
-  let component: CaloriesComponent;
-  let fixture: ComponentFixture<CaloriesComponent>;
+describe('CaloriesModalComponent', () => {
+  let component: CaloriesModalComponent;
+  let fixture: ComponentFixture<CaloriesModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CaloriesComponent ]
+      declarations: [ CaloriesModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CaloriesComponent);
+    fixture = TestBed.createComponent(CaloriesModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -24,6 +23,3 @@ describe('CaloriesComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
-

@@ -1,25 +1,36 @@
+.search-bar {
+  height: 60px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border: white 3px solid;
+  border-radius: 2px;
+  justify-content: space-between;
+  display: flex;
+}
+
 .select {
   margin-left: 20;
 }
-.container {
-    position: relative;
+
+.checkbox-section {
+  margin-top: 25px;
 }
-  
-.vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+
+.checkbox-margin {
+  margin: 0 15px;
 }
 
 .input-form {
   min-width: 100px;
-  max-width: 200px;
+  max-width: 300px;
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 25px;
 }
+
 .input-full-width {
   width: 100%;
+}
+
+.search-button {
+  margin: 10px;
 }
