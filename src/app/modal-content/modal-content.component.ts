@@ -20,13 +20,27 @@ export class ModalContentComponent implements OnInit {
   numberOfRepetition: string = '';
   exercise: string;
   createdExercises: IDragAndDropItem[] = [];
+  excerciseName: string = '';
+  difficulty: string;
+  difficulties: ISelectData[] = [
+    { value: 'easy', viewValue: 'Easy' },
+    { value: 'medium', viewValue: 'Medium' },
+    { value: 'hard', viewValue: 'Hard' },
+  ];
 
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
   constructor(public activeModal: NgbActiveModal) {}
 
   passBack() {
-    this.passEntry.emit(this.type);
-    this.activeModal.close(this.type);
+    this.passEntry.emit({
+      createdExercises: this.createdExercises,
+      excerciseName: this.excerciseName,
+    });
+    this.activeModal.close({
+      createdExercises: this.createdExercises,
+      excerciseName: this.excerciseName,
+      difficulty: this.difficulty.toUpperCase(),
+    });
   }
 
   types: ISelectData[] = [
@@ -88,6 +102,10 @@ export class ModalContentComponent implements OnInit {
     }
   }
 
+  onDifficultyChange(newDifficulty) {
+    this.difficulty = newDifficulty;
+  }
+
   onExerciseChange(newExercise) {
     this.exercise = newExercise;
   }
@@ -115,6 +133,4 @@ export class ModalContentComponent implements OnInit {
       this.exercise = undefined;
     }
   }
-
-  createWorkout() {}
 }

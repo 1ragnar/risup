@@ -21,3 +21,7 @@
 .input-full-width {
   width: 100%;
 }
+
+.select {
+  margin-left: 20;
+}
