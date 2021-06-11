@@ -1,12 +1,11 @@
-import { Component,Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { CaloriesModalComponent } from '../calories-modal/calories-modal.component';
-
 
 @Component({
   selector: 'app-calories',
   templateUrl: './calories.component.html',
-  styleUrls: ['./calories.component.css']
+  styleUrls: ['./calories.component.css'],
 })
 export class CaloriesComponent {
   numCalories: number;
@@ -23,12 +22,9 @@ export class CaloriesComponent {
     let ngbModalOptions: NgbModalOptions = {
       //backdrop: 'static',
       keyboard: false,
-      size: 'xl',
+      size: 'l',
     };
-    const modalRef = this.dialog.open(
-      CaloriesModalComponent,
-      ngbModalOptions
-    );
+    const modalRef = this.dialog.open(CaloriesModalComponent, ngbModalOptions);
 
     modalRef.result.then((result) => {
       if (result) {
@@ -40,7 +36,6 @@ export class CaloriesComponent {
       console.log('The dialog was closed');
       this.numCalories = result;
     });*/
-
   }
   onNumCalories(newNumCalories) {
     this.numCalories = newNumCalories;
@@ -71,4 +66,3 @@ export class CaloriesDialog {
   ngOnInit(): void {}
 }
 */
-

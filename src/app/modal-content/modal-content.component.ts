@@ -7,7 +7,11 @@ import {
 } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ISelectData } from '../home/home.component';
-import { IDragAndDropItem } from '../drag-and-drop-list/drag-and-drop-list.component';
+import {
+  IDragAndDropItem,
+  IDragAndDropCreatedItem,
+} from '../drag-and-drop-list/drag-and-drop-list.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-modal-content',
@@ -16,10 +20,11 @@ import { IDragAndDropItem } from '../drag-and-drop-list/drag-and-drop-list.compo
 })
 export class ModalContentComponent implements OnInit {
   type: string;
-  currentExercises: ISelectData[];
+  currentExercises: IDragAndDropItem[];
   numberOfRepetition: string = '';
   exercise: string;
-  createdExercises: IDragAndDropItem[] = [];
+  createdExercises: IDragAndDropCreatedItem[] = [];
+
   excerciseName: string = '';
   difficulty: string;
   difficulties: ISelectData[] = [
@@ -29,18 +34,31 @@ export class ModalContentComponent implements OnInit {
   ];
 
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(
+    public activeModal: NgbActiveModal,
+    public snackBar: MatSnackBar
+  ) {}
 
   passBack() {
-    this.passEntry.emit({
-      createdExercises: this.createdExercises,
-      excerciseName: this.excerciseName,
-    });
-    this.activeModal.close({
-      createdExercises: this.createdExercises,
-      excerciseName: this.excerciseName,
-      difficulty: this.difficulty.toUpperCase(),
-    });
+    if (this.difficulty && this.excerciseName && this.createdExercises) {
+      this.passEntry.emit({
+        createdExercises: this.createdExercises,
+        excerciseName: this.excerciseName,
+      });
+      this.activeModal.close({
+        createdExercises: this.createdExercises,
+        excerciseName: this.excerciseName,
+        difficulty: this.difficulty.toUpperCase(),
+      });
+    } else {
+      this.snackBar.open(
+        'You need to defined at least one exercise, diffuculty and workout name in order to save',
+        'Error',
+        {
+          duration: 5000,
+        }
+      );
+    }
   }
 
   types: ISelectData[] = [
@@ -51,40 +69,145 @@ export class ModalContentComponent implements OnInit {
     { value: 'legs', viewValue: 'Legs' },
   ];
 
-  absWorkout: ISelectData[] = [
-    { value: 'mountain-climber', viewValue: 'Mountain climber' },
-    { value: 'reverse-crunch', viewValue: 'Reverse crunch' },
-    { value: 'russian-twist', viewValue: 'Russian twist' },
-    { value: 'slide-crunch', viewValue: 'Slide crunch' },
+  absWorkout: IDragAndDropItem[] = [
+    {
+      workoutTypeName: 'Abs',
+      exercisesName: 'Mountain climber',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Abs',
+      exercisesName: 'Reverse crunch',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Abs',
+      exercisesName: 'Russian twist',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Abs',
+      exercisesName: 'Slide crunch',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
   ];
 
-  armsWorkout: ISelectData[] = [
-    { value: 'arm-cirlce', viewValue: 'Arm circle' },
-    { value: 'plank', viewValue: 'Plank' },
-    { value: 'rolling-pushups', viewValue: 'Rolling push ups' },
-    { value: 'spiderman', viewValue: 'Spiderman' },
-    { value: 'dips', viewValue: 'Dips' },
+  armsWorkout: IDragAndDropItem[] = [
+    {
+      workoutTypeName: 'Arms',
+      exercisesName: 'Arm circle',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Arms',
+      exercisesName: 'Plank',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Arms',
+      exercisesName: 'Rolling push ups',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Arms',
+      exercisesName: 'Spiderman',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Arms',
+      exercisesName: 'Dips',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
   ];
 
-  backWorkout: ISelectData[] = [
-    { value: 'bridge', viewValue: 'Bridge' },
-    { value: 'high-plank', viewValue: 'High plank' },
-    { value: 'low-plank', viewValue: 'Low plank' },
-    { value: 'push-ups', viewValue: 'Push ups' },
+  backWorkout: IDragAndDropItem[] = [
+    {
+      workoutTypeName: 'Back',
+      exercisesName: 'Bridge',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Back',
+      exercisesName: 'High plank',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Back',
+      exercisesName: 'Low plank',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Back',
+      exercisesName: 'Push ups',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
   ];
 
-  chestWorkout: ISelectData[] = [
-    { value: 'diamond', viewValue: 'Diamond push ups' },
-    { value: 'decline', viewValue: 'Decline push ups' },
-    { value: 'standard', viewValue: 'Standrad push ups' },
-    { value: 'wide', viewValue: 'Wide push ups' },
+  chestWorkout: IDragAndDropItem[] = [
+    {
+      workoutTypeName: 'Chest',
+      exercisesName: 'Diamond push ups',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Chest',
+      exercisesName: 'Decline push ups',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Chest',
+      exercisesName: 'Standrad push ups',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Chest',
+      exercisesName: 'Wide push ups',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
   ];
 
-  legsWorkout: ISelectData[] = [
-    { value: 'leg-raise', viewValue: 'Leg raise' },
-    { value: 'lunge', viewValue: 'Lunge' },
-    { value: 'squat', viewValue: 'Squat' },
-    { value: 'sits', viewValue: 'Sits' },
+  legsWorkout: IDragAndDropItem[] = [
+    {
+      workoutTypeName: 'Legs',
+      exercisesName: 'Leg raise',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Legs',
+      exercisesName: 'Lunge',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Legs',
+      exercisesName: 'Squat',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
+    {
+      workoutTypeName: 'Legs',
+      exercisesName: 'Sits',
+      numberOfRepetition: '0',
+      disabled: true,
+    },
   ];
 
   onTypeChange(newType) {
@@ -99,6 +222,12 @@ export class ModalContentComponent implements OnInit {
       this.currentExercises = this.chestWorkout;
     } else if (newType === 'legs') {
       this.currentExercises = this.legsWorkout;
+    } else {
+      this.currentExercises = this.absWorkout.concat(
+        this.armsWorkout.concat(
+          this.backWorkout.concat(this.chestWorkout.concat(this.legsWorkout))
+        )
+      );
     }
   }
 
@@ -121,8 +250,8 @@ export class ModalContentComponent implements OnInit {
   saveExercise() {
     if (this.type && this.numberOfRepetition && this.exercise) {
       this.createdExercises.push({
-        id: Math.round(Math.random() * 1000000),
-        order: Math.round(Math.random() * 1000000),
+        id: this.createdExercises.length,
+        order: this.createdExercises.length,
         numberOfRepetition: +this.numberOfRepetition,
         workoutTypeName: this.type,
         exercisesName: this.exercise,
@@ -131,6 +260,14 @@ export class ModalContentComponent implements OnInit {
       this.type = undefined;
       this.numberOfRepetition = '';
       this.exercise = undefined;
+    } else {
+      this.snackBar.open(
+        'You need to defined diffuculty, workout name and at least one exercise in order to save',
+        'Error',
+        {
+          duration: 2000,
+        }
+      );
     }
   }
 }

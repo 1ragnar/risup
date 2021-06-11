@@ -3,14 +3,22 @@ import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
+  copyArrayItem,
 } from '@angular/cdk/drag-drop';
 
-export interface IDragAndDropItem {
+export interface IDragAndDropCreatedItem {
   id: number;
   order: number;
   numberOfRepetition: number;
   workoutTypeName: string;
   exercisesName: string;
+}
+
+export interface IDragAndDropItem {
+  workoutTypeName: string;
+  exercisesName: string;
+  numberOfRepetition: string;
+  disabled: boolean;
 }
 
 @Component({
@@ -19,33 +27,26 @@ export interface IDragAndDropItem {
   styleUrls: ['./drag-and-drop-list.component.css'],
 })
 export class DragAndDropListComponent implements OnInit {
-  @Input() list: IDragAndDropItem;
+  @Input() createdList: IDragAndDropCreatedItem[];
+  @Input() exercisesList: IDragAndDropItem[];
 
-  // list: IDragAndDropItem[] = [
-  //   {
-  //     id: 1,
-  //     order: 0,
-  //     numberOfRepetition: 15,
-  //     workoutTypeName: 'Abs',
-  //     exercisesName: 'Mountain climber',
-  //   },
-  //   {
-  //     id: 2,
-  //     order: 1,
-  //     numberOfRepetition: 10,
-  //     workoutTypeName: 'Arms',
-  //     exercisesName: 'Plank',
-  //   },
-  // ];
   constructor() {}
 
-  drop(event: CdkDragDrop<IDragAndDropItem[]>) {
-    moveItemInArray(
-      event.container.data,
-      event.previousIndex,
-      event.currentIndex
-    );
-  }
-
   ngOnInit(): void {}
+  drop(event: CdkDragDrop<any>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+  }
 }

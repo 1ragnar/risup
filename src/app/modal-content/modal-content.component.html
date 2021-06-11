@@ -3,19 +3,11 @@
     <h4 class="modal-title" id="modal-basic-title">Create workout</h4>
   </div>
   <div class="modal-body">
-    <div
-      style="
-        width: 100%;
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-      "
-    >
-      <span>Create exercise</span>
+    <div style="width: 100%; display: flex">
       <mat-form-field
         appearance="fill"
         class="select"
-        style="width: 60%; margin-top: 10px"
+        style="width: 200px; position: absolute; margin-left: 25%"
       >
         <mat-label>Workout types</mat-label>
         <mat-select
@@ -32,77 +24,62 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="select" style="width: 60%">
-        <mat-label>Excercises</mat-label>
-        <mat-select
-          ngForm
-          [(value)]="exercise"
-          (selectionChange)="onExerciseChange($event.value)"
-          #excercisesForm="ngForm"
-          name="excercises"
+    </div>
+  </div>
+  <div
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    "
+  >
+    <app-drag-and-drop-list
+      [exercisesList]="currentExercises"
+      [createdList]="createdExercises"
+    ></app-drag-and-drop-list>
+  </div>
+  <div
+    style="
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      margin-left: 35%;
+    "
+  >
+    <form class="input-form" style="width: 150px">
+      <mat-form-field class="mat-form-field">
+        <mat-label>Workout name</mat-label>
+        <input
+          matInput
+          [(value)]="excerciseName"
+          (input)="excerciseName = $event.target.value"
+        />
+      </mat-form-field>
+    </form>
+    <mat-form-field class="select">
+      <mat-label>Difficulty</mat-label>
+      <mat-select (selectionChange)="onDifficultyChange($event.value)">
+        <mat-option value="0"></mat-option>
+        <mat-option
+          *ngFor="let difficulty of difficulties"
+          [value]="difficulty.value"
         >
-          <mat-option value="0"></mat-option>
-          <mat-option
-            *ngFor="let excercise of currentExercises"
-            [value]="excercise.value"
-          >
-            {{ excercise.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <form class="input-form" style="width: 60%">
-        <mat-form-field class="input-full-width">
-          <mat-label>Number of repetitions</mat-label>
-          <input
-            matInput
-            [(value)]="numberOfRepetition"
-            (input)="numberOfRepetition = $event.target.value"
-          />
-        </mat-form-field>
-      </form>
-      <button
-        mat-raised-button
-        color="primary"
-        class="search-button"
-        (click)="saveExercise()"
-      >
-        Save
-      </button>
-    </div>
-    <div style="width: 50%; float: left">
-      <form class="input-form" style="width: 60%">
-        <mat-form-field class="input-full-width">
-          <mat-label>Exercise name</mat-label>
-          <input
-            matInput
-            [(value)]="excerciseName"
-            (input)="excerciseName = $event.target.value"
-          />
-        </mat-form-field>
-      </form>
-      <mat-form-field class="select">
-        <mat-label>Difficulty</mat-label>
-        <mat-select (selectionChange)="onDifficultyChange($event.value)">
-          <mat-option value="0"></mat-option>
-          <mat-option
-            *ngFor="let difficulty of difficulties"
-            [value]="difficulty.value"
-          >
-            {{ difficulty.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <app-drag-and-drop-list
-        [list]="createdExercises"
-      ></app-drag-and-drop-list>
-      <button
-        (click)="passBack()"
-        color="primary"
-        mat-raised-button
-        class="search-button"
-      >
-        Create workout
-      </button>
-    </div>
+          {{ difficulty.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      (click)="passBack()"
+      color="primary"
+      mat-raised-button
+      class="search-button"
+    >
+      Create workout
+    </button>
   </div>
 </div>

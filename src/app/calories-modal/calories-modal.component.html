@@ -1,44 +1,36 @@
-
 <div class="modal-container">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Add Calories</h4>
-    </div>
-    <div class="modal-body">
-      <div
-        style="
-          width: 100%;
-          flex-direction: column;
-          display: flex;
-          align-items: center;
-        "
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Calories</h4>
+  </div>
+  <div class="modal-body">
+    <div
+      style="
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <form class="input-form" style="width: 80%">
+        <mat-form-field class="input-full-width">
+          <mat-label>Food Name</mat-label>
+          <input matInput (input)="foodName = $event.target.value" />
+        </mat-form-field>
+      </form>
+      <form class="input-form" style="width: 80%">
+        <mat-form-field class="input-full-width">
+          <mat-label>Num Calories</mat-label>
+          <input matInput (input)="numCalories = $event.target.value" />
+        </mat-form-field>
+      </form>
+      <button
+        mat-raised-button
+        color="primary"
+        class="search-button"
+        (click)="add()"
       >
-        <form class="input-form" style="width: 30%">
-          <mat-form-field class="input-full-width">
-            <mat-label>Food Name</mat-label>
-            <input
-              matInput
-              (input)="foodName = $event.target.value"
-            />
-          </mat-form-field>
-        </form>
-        <form class="input-form" style="width: 30%">
-            <mat-form-field class="input-full-width">
-              <mat-label>Num Calories</mat-label>
-              <input
-                matInput
-                (input)="numCalories = $event.target.value"
-              />
-            </mat-form-field>
-          </form>
-        <button
-          mat-raised-button
-          color="primary"
-          class="search-button"
-          (click)="add()"
-        >
-          Add
-        </button>
-      </div>
+        Add
+      </button>
     </div>
   </div>
-  
+</div>

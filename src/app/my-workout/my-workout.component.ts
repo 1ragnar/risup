@@ -84,23 +84,33 @@ export class MyWorkoutComponent implements OnInit {
       keyboard: false,
       size: 'xl',
     };
+
     const modalRef = this.modalService.open(
       ModalContentComponent,
       ngbModalOptions
     );
 
-    modalRef.result.then((result) => {
-      if (result) {
-        this.workouts.push({
-          id: this.workouts.length,
-          name: result.excerciseName,
-          type: 'CUSTOM',
-          difficulty: result.difficulty,
-          recommended: false,
-          image: '/assets/img/Pushups.jpg',
-        });
-      }
-    });
+    modalRef.result.then(
+      (result) => {
+        if (result) {
+          console.log(result);
+          this.workouts.push({
+            id: this.workouts.length,
+            name: result.excerciseName,
+            type: 'CUSTOM',
+            difficulty: result.difficulty,
+            recommended: false,
+            image:
+              this.workouts.length == 2
+                ? '/assets/img/Pushups.jpg'
+                : this.workouts.length == 3
+                ? '/assets/img/FullBody1.jpg'
+                : '/assets/img/Chest3.jpg',
+          });
+        }
+      },
+      (reason) => {}
+    );
   }
 
   difficulties: ISelectData[] = [

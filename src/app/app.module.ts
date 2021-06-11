@@ -29,9 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRippleModule } from '@angular/material/core';
 import { CaloriesModalComponent } from './calories-modal/calories-modal.component';
-
-
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -67,6 +66,8 @@ import { CaloriesModalComponent } from './calories-modal/calories-modal.componen
     // Modules for the calories
     MatFormFieldModule,
     MatRippleModule,
+    ScrollingModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
