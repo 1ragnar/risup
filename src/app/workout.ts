@@ -1,3 +1,5 @@
+import { Exercise } from "./exercise";
+
 export interface Workout {
   id: number;
   name: string;
@@ -5,4 +7,5 @@ export interface Workout {
   difficulty: string;
   recommended: boolean;
   image: string;
+  exercise: Exercise[];
 }

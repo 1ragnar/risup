@@ -4,6 +4,7 @@ import { ModalContentComponent } from '../modal-content/modal-content.component'
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Workout } from '../workout';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { EXERCISES } from '../mock-exercises';
 
 @Component({
   selector: 'app-my-workout',
@@ -24,6 +25,7 @@ export class MyWorkoutComponent implements OnInit {
       difficulty: 'EASY',
       recommended: false,
       image: '/assets/img/Pushups.jpg',
+      exercise: [],
     },
     {
       id: 1,
@@ -32,6 +34,7 @@ export class MyWorkoutComponent implements OnInit {
       difficulty: 'MEDIUM',
       recommended: false,
       image: '/assets/img/Chest1.jpg',
+      exercise: [],
     },
   ];
   selectedWorkouts: Workout[] = this.workouts;
@@ -106,6 +109,7 @@ export class MyWorkoutComponent implements OnInit {
                 : this.workouts.length == 3
                 ? '/assets/img/FullBody1.jpg'
                 : '/assets/img/Chest3.jpg',
+            exercise: [],
           });
         }
       },
