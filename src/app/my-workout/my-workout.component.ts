@@ -93,7 +93,6 @@ export class MyWorkoutComponent implements OnInit {
     modalRef.result.then(
       (result) => {
         if (result) {
-          console.log(result);
           this.workouts.push({
             id: this.workouts.length,
             name: result.excerciseName,
