@@ -31,6 +31,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { CaloriesModalComponent } from './calories-modal/calories-modal.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { WorkoutModalComponent } from './workout-modal/workout-modal.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ModalContentComponent,
     DragAndDropListComponent,
     CaloriesModalComponent,
+    WorkoutModalComponent,
     //SearchComponent,
   ],
 
@@ -74,9 +76,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatCardModule,
+    MatIconModule,
+    MatGridListModule,
   ],
   providers: [],
-  entryComponents: [ModalContentComponent],
+  entryComponents: [
+    ModalContentComponent,
+    WorkoutModalComponent
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

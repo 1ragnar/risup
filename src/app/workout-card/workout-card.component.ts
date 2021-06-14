@@ -5,13 +5,14 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Exercise } from '../exercise';
 
 export interface DialogData {
   name: string;
   difficulty: string;
   video: string;
   description: string;
+  exercise: Exercise[];
 }
 
 @Component({
@@ -24,8 +25,10 @@ export class WorkoutCardComponent implements OnInit {
   difficulty: string;
   video: string;
   description: string;
+  exercise: Exercise[];
 
-  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer) {}
+
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -34,7 +37,7 @@ export class WorkoutCardComponent implements OnInit {
   openWorkout(): void {
     const dialogRef = this.dialog.open(workoutModal, {
       width: '1000px',
-      data: { name: this.data.name, difficulty: this.data.difficulty },
+      data: { name: this.data.name, difficulty: this.data.difficulty, exercise: this.data.exercise },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -44,7 +47,8 @@ export class WorkoutCardComponent implements OnInit {
 }
 @Component({
   selector: 'workoutModal',
-  templateUrl: 'workout_modal.html',
+  templateUrl: './../workout-modal/workout-modal.component.html',
+  styleUrls: ['./../workout-modal/workout-modal.component.css'],
 })
 export class workoutModal {
   constructor(
