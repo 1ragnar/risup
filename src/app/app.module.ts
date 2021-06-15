@@ -78,13 +78,9 @@ import { WorkoutModalComponent } from './workout-modal/workout-modal.component';
     MatRippleModule,
     MatCardModule,
     MatIconModule,
-    MatGridListModule,
   ],
   providers: [],
-  entryComponents: [
-    ModalContentComponent,
-    WorkoutModalComponent
-  ],
+  entryComponents: [ModalContentComponent, WorkoutModalComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
