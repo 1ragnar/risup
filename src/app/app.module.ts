@@ -32,6 +32,8 @@ import { CaloriesModalComponent } from './calories-modal/calories-modal.componen
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { WorkoutModalComponent } from './workout-modal/workout-modal.component';
+import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { WorkoutModalComponent } from './workout-modal/workout-modal.component';
 
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
@@ -70,6 +73,7 @@ import { WorkoutModalComponent } from './workout-modal/workout-modal.component';
     MatRippleModule,
     ScrollingModule,
     MatSnackBarModule,
+    MatTooltipModule,
   ],
   exports: [
     MatButtonModule,
@@ -78,6 +82,8 @@ import { WorkoutModalComponent } from './workout-modal/workout-modal.component';
     MatRippleModule,
     MatCardModule,
     MatIconModule,
+    MatGridListModule,
+    MatTooltipModule,
   ],
   providers: [],
   entryComponents: [ModalContentComponent, WorkoutModalComponent],

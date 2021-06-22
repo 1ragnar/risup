@@ -1,6 +1,24 @@
 <div cdkDropListGroup class="drag-and-drop-container">
   <div class="example-container">
-    <h2>Exercises</h2>
+    <div
+      style="
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      "
+    >
+      <h2>Exercises</h2>
+      <button
+        style="margin-bottom: 15px"
+        mat-icon-button
+        aria-label="Info"
+        matTooltip="You need to define number of repetitions and then drag item from right to left list"
+      >
+        <mat-icon>help</mat-icon>
+      </button>
+    </div>
 
     <div style="height: 400px; overflow: auto">
       <div

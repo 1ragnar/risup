@@ -2,11 +2,11 @@
 <div mat-dialog-content>
   <p>{{ data.name }}</p>
   <p>{{ data.difficulty }}</p>
-  <ul>
-    <li *ngFor="let exer of data.exercise">
+  <!-- <mat-grid-list>
+    <mat-grid-tile *ngFor="let exer of data.exercise">
       <p>{{ exer.exercisesName }}</p>
-    </li>
-  </ul>
+    </mat-grid-tile>
+  </mat-grid-list> -->
 </div>
 <div mat-dialog-actions align="right">
   <button class="mat-raised-button" (click)="onNoClick()">End trainning</button>

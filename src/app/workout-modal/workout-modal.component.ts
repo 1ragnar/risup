@@ -1,12 +1,11 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { DialogData } from '../workout-card/workout-card.component';
-import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-workout-modal',
   templateUrl: './workout-modal.component.html',
-  styleUrls: ['./workout-modal.component.css']
+  styleUrls: ['./workout-modal.component.css'],
 })
 export class WorkoutModalComponent implements OnInit {
   name: string;
@@ -16,9 +15,10 @@ export class WorkoutModalComponent implements OnInit {
 
   @Input() data: DialogData;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    console.log(this.data);
   }
 
   onNoClick(): void {

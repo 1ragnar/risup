@@ -6,6 +6,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { Exercise } from '../exercise';
+import { WorkoutModalComponent } from '../workout-modal/workout-modal.component';
 
 export interface DialogData {
   name: string;
@@ -27,21 +28,25 @@ export class WorkoutCardComponent implements OnInit {
   description: string;
   exercise: Exercise[];
 
-
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
   @Input() data: Workout;
 
-  openWorkout(): void {
+  openWorkout() {
     const dialogRef = this.dialog.open(workoutModal, {
       width: '1000px',
-      data: { name: this.data.name, difficulty: this.data.difficulty, exercise: this.data.exercise },
+      data: {
+        name: this.data.name,
+        difficulty: this.data.difficulty,
+        exercise: this.data.exercise,
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
+      console.log(this.data);
     });
   }
 }

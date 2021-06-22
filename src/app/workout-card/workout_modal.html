@@ -10,6 +10,9 @@
       allowfullscreen
     ></iframe>
   </p>
+  <ul *ngFor="let exer of data.exercise">
+    <li>{{ exer.exercisesName }}</li>
+  </ul>
   <p>
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula
     lectus at mauris feugiat pellentesque. Donec efficitur lacus quis dui
@@ -32,6 +35,7 @@
   </p>
 </div>
 
-<div mat-dialog-actions align="right">
+<!-- <div mat-dialog-actions align="right">
+  
   <button class="mat-raised-button" (click)="onNoClick()">End trainning</button>
-</div>
+</div> -->
